@@ -1,3 +1,3 @@
 var student =require('./sum.js')
 
-console.log("Naam: " + student.name[0]+ " Leeftijd: " + student.age[0] )
+console.log("Naam: " + student.name[1]+ " Leeftijd: " + student.age[0] )
