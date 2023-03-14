@@ -53,11 +53,11 @@ app.get('/login', (req, res) => {
 });
 
 
-app.post('/login-validate',   (req, res) => {
-    const formData = req.body;
-    const username = req.body.username;
-    const password = req.body.password;
-    const collection = db.collection('users');
+// app.post('/login-validate',   (req, res) => {
+    // const formData = req.body;
+    // const username = req.body.username;
+    // const password = req.body.password;
+    // const collection = db.collection('users');
 
     // res.render('login-validate.ejs', formData, async (req, res) =>{
     //
@@ -73,7 +73,7 @@ app.post('/login-validate',   (req, res) => {
 
 
 
-});
+// });
 
 
 
@@ -116,4 +116,4 @@ app.post('/info', async (req, res) => {
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 });
-
+connect();
