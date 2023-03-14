@@ -1,5 +1,5 @@
 # Playstation Matcher
-Deze applicatie is gericht op het bijhouden welke Playstation games je hetb gespeeld. Hierbij kan 
+Deze applicatie is gericht op het bijhouden welke Playstation games je hebt gespeeld. Hierbij kan 
 je met anderen vergelijken wie de leukste of de meeste games heeft gespeeld. 
 
 ## My feature
