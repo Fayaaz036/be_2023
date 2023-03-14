@@ -1,8 +1,12 @@
 <html lang="">
 <head>
     <title>registreren</title>
+    <link href="style/style.css" rel="stylesheet">
+
 </head>
 <body>
+<header><%- include('../static/partials/header.ejs') %></header>
+
 <h1>registereren</h1>
 <form method="POST" action="/info" id="registreren">
     <label for="username">Gebruikersnaam:</label>
@@ -11,7 +15,41 @@
     <label for="password">Wachtwoord:</label>
     <input type="password" id="password" name="password" required>
     <br>
-    <input type="submit" value="Inloggen">
+    <label for="gamesplayed"><h2>Gespeelde games:</h2></label>
+
+    <ul>
+        <li>
+            <img src="img/gtav.png" alt="Grand Theft Auto V Cover"  class="game">
+            <br>
+            <input type="checkbox" id="gtav" name="game" value="GTA V">
+            <label for="Grand Theft Auto">Grand Theft Auto V</label>
+        </li>
+        <li>
+            <img src="img/mw.png" alt="Call of Duty: Warzone Cover"  class="game">
+            <br>
+            <input type="checkbox" id="mw" name="game" value="Modern Warfare">
+            <label for="mw">Call of Duty: Modern Warfare</label>
+        </li>
+        <li>
+            <img src="img/gt7.png" alt="Gran Turismo 7 Cover"  class="game">
+            <br>
+            <input type="checkbox" id="gt7" name="game" value="Gran Turismo 7">
+            <label for="gt7">Gran Turismo 7</label>
+        </li>
+        <li>
+            <img src="img/fortnite.png" alt="Fortnite Cover" class="game">
+            <br>
+            <input type="checkbox" id="fortnite" name="game" value="Fortnite">
+            <label for="fortnite">Fortnite</label>
+        </li>
+        <li>
+            <img src="img/fifa23.png" alt="FIFA 23 Cover" class="game">
+            <br>
+            <input type="checkbox" id="fifa23" name="game" value="FIFA 23">
+            <label for="fifa23">FIFA 23</label>
+        </li>
+    </ul>
+    <input type="submit" value="Registreren">
 </form>
 </body>
 </html>

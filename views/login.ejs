@@ -1,8 +1,11 @@
 <html>
 <head>
     <title>Inloggen</title>
+    <link href="style/style.css" rel="stylesheet">
+
 </head>
 <body>
+<header><%- include('../static/partials/header.ejs') %></header>
 <h1>Inloggen</h1>
 <form method="POST" action="/login-validate" id="inloggen">
     <label for="username">Gebruikersnaam:</label>
@@ -11,6 +14,7 @@
     <label for="pass">Wachtwoord:</label>
     <input type="password" id="pass" name="pass">
     <br>
+
     <input type="submit" value="Inloggen">
 </form>
 </body>

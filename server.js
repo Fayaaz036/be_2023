@@ -1,17 +1,20 @@
 const MongoClient = require('mongodb').MongoClient
-const express = require('express')
-const app = express()
-const port = 3000
-const bodyParser = require('body-parser')
-const find = require("ejs");
-
+const express = require('express');
+const app = express();
+const port = 3000;
+const cors = require("cors");
+const bodyParser = require('body-parser');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(express.static(__dirname + "/static"));
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
-
+app.set("view engine", "ejs");
+app.set("views", "views");
 require('dotenv').config();
 
 const DbUsername = process.env.DB_USERNAME;
@@ -21,6 +24,10 @@ const url = "mongodb+srv://" + (DbUsername) + ":" + (DbPassword) + "@credentials
 const client = new MongoClient(url);
 const db = client.db("playstationapp");
 const col = db.collection("users");
+
+
+
+
 
 
 
@@ -85,26 +92,28 @@ app.post('/info', async (req, res) => {
     const formData = req.body;
     const username = req.body.username;
     const password = req.body.password;
+    const game = req.body.game;
     const collection = db.collection('users');
+    const collection2 = db.collection('games');
 
-
-    res.render('info.ejs',  formData );
+    res.render('info.ejs',  formData  )
 
         await collection.insertOne(
             {
                 name: username,
-                pass: password
+                pass: password,
+                game: game
             }
         )
-
             console.log('Account aangemaakt door', username );
 
     });
 
 
 
+
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 });
-connect();
 
