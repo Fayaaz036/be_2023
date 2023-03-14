@@ -8,7 +8,6 @@ const bodyParser = require('body-parser');
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 app.use(express.static(__dirname + "/static"));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -94,10 +93,11 @@ app.post('/info', async (req, res) => {
     const password = req.body.password;
     const game = req.body.game;
     const collection = db.collection('users');
-    const collection2 = db.collection('games');
 
+    //laad de info pagina in, en vul die in met de games die je hebt aangeklikt op de registreer pagina.
     res.render('info.ejs',  formData  )
 
+    //insert in de database in de collectie users
         await collection.insertOne(
             {
                 name: username,
