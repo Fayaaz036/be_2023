@@ -16,6 +16,7 @@ a {
 body div,
 .unauthorized {
 	font-family: Arial, Helvetica, sans-serif;
+	color:white;
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -609,4 +610,13 @@ input#Title, textarea#Description {
 }
 ul.navigation {
 	height: 4.5em;
+}
+input[type='submit'], .unauthorized a {
+	border-radius: 1em;
+}
+.header  p {
+	color:black!important;
+}
+input[type='radio'] + label {
+	background-color: transparent;
 }

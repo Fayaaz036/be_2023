@@ -8,9 +8,15 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const session = require('express-session')
 const compression = require('compression')
+const psnApi = require("psn-api")
+const request = require('request');
+const axios = require('axios');
+const { getVideoGamesNews } = require('./public/js/api');
+
 //Album en user model met hashpassword in db
 const { Games, Users } = require('./models/models')
 const saltRounds = 10
+
 
 // Defining express as app
 const app = express()
@@ -84,6 +90,8 @@ app.use(express.static(__dirname + '/public'))
 		})
 	)
 
+
+
 // All Get requests
 app.get('/', (req, res) => {
 	res.render('login', {
@@ -92,6 +100,7 @@ app.get('/', (req, res) => {
 		emailInput: '',
 		passwordInput: '',
 	})
+
 })
 	.get('/results', authorizeUser, async (req, res) => {
 		const currentUser = await Users.find({ _id: req.session.user.userID })
@@ -130,6 +139,15 @@ app.get('/', (req, res) => {
 	.get('*', (req, res) => {
 		res.status(404).render('404')
 	})
+	.get('/home', async (req, res) => {
+		try {
+			const newsArticles = await getVideoGamesNews();
+			res.render('home', { title: newsArticles.title });
+		} catch (error) {
+			console.error(error);
+			res.status(500).send('Oops! Something went wrong.');
+		}
+	});
 
 const errorlogin = req => {
 	return {
@@ -151,15 +169,19 @@ app.post('/home', async (req, res) => {
 		// when password is identical with the one in the database, create a session with user ID
 		if (cmp) {
 			req.session.user = { userID: checkUser[0]['_id'] }
+			// const newsArticles = await getVideoGamesNews();
 			const currentUser = await Users.find({ _id: req.session.user.userID })
-			res.redirect('all', { userinfo: currentUser })
+			res.render('home', { userinfo: currentUser })
+			///haal nieuws op via de api
+
+
 		} else {
 			// show error message when password is wrong
-			res.render('login', errorlogin(req))
+			res.render('logIn', errorlogin(req))
 		}
 	} else {
 		// show error message when email is wrong
-		res.render('login', errorlogin(req))
+		res.render('logIn', errorlogin(req))
 	}
 })
 	.post('/logout', (req, res) => {
@@ -242,3 +264,22 @@ app.post('/home', async (req, res) => {
 app.listen(port, () => {
 	console.log(`server running on ${port}`)
 })
+
+
+// const options = {
+// 	method: 'GET',
+// 	url: 'https://videogames-news2.p.rapidapi.com/videogames_news/search_news',
+// 	qs: {query: 'GTA'},
+// 	headers: {
+// 		'X-RapidAPI-Key': '92c911c05fmshf12c9b883dc8b01p195452jsna31390874f81',
+// 		'X-RapidAPI-Host': 'videogames-news2.p.rapidapi.com',
+// 		useQueryString: true
+// 	}
+// };
+//
+// request(options, function (error, response, body) {
+// 	if (error) throw new Error(error);
+//
+// 	console.log(body);
+// });
+

@@ -1,3 +1,5 @@
+document.title = "Playstation App";
+
 // Bottom navigation buttons
 const buttonOne = document.querySelector('#linkOne')
 const buttonTwo = document.querySelector('#linkTwo')
@@ -47,36 +49,36 @@ const toggle = heart => {
 }
 
 // Highlights the icon of the page of where the user is located
-if (window.location.href === 'http://localhost:4444/favorites') {
-	buttonTwo.classList.add('inActive')
-	buttonOne.classList.add('inActive')
-	buttonThree.classList.add('inActive')
-	buttonFour.classList.add('active')
-} else if (window.location.href === 'http://localhost:4444/all') {
-	buttonTwo.classList.add('inActive')
-	buttonThree.classList.add('active')
-	buttonOne.classList.add('inActive')
-	buttonFour.classList.add('inActive')
-} else if (window.location.href === 'http://localhost:4444/add') {
-	buttonTwo.classList.add('active')
-	buttonOne.classList.add('inActive')
-	buttonThree.classList.add('inActive')
-	buttonFour.classList.add('inActive')
-} else if (
-	window.location.href === 'http://localhost:4444/preference' ||
-	window.location.href === 'http://localhost:4444/results' ||
-	window.location.href === 'http://localhost:4444/home'
-) {
-	buttonTwo.classList.add('inActive')
-	buttonThree.classList.add('inActive')
-	buttonOne.classList.add('active')
-	buttonFour.classList.add('inActive')
-} else {
-	buttonTwo.classList.add('inActive')
-	buttonOne.classList.add('inActive')
-	buttonThree.classList.add('inActive')
-	buttonFour.classList.add('inActive')
-}
+// if (window.location.href === 'http://localhost:4444/favorites') {
+// 	buttonTwo.classList.add('inActive')
+// 	buttonOne.classList.add('inActive')
+// 	buttonThree.classList.add('inActive')
+// 	buttonFour.classList.add('active')
+// } else if (window.location.href === 'http://localhost:4444/all') {
+// 	buttonTwo.classList.add('inActive')
+// 	buttonThree.classList.add('active')
+// 	buttonOne.classList.add('inActive')
+// 	buttonFour.classList.add('inActive')
+// } else if (window.location.href === 'http://localhost:4444/add') {
+// 	buttonTwo.classList.add('active')
+// 	buttonOne.classList.add('inActive')
+// 	buttonThree.classList.add('inActive')
+// 	buttonFour.classList.add('inActive')
+// } else if (
+// 	window.location.href === 'http://localhost:4444/preference' ||
+// 	window.location.href === 'http://localhost:4444/results' ||
+// 	window.location.href === 'http://localhost:4444/home'
+// ) {
+// 	buttonTwo.classList.add('inActive')
+// 	buttonThree.classList.add('inActive')
+// 	buttonOne.classList.add('active')
+// 	buttonFour.classList.add('inActive')
+// } else {
+// 	buttonTwo.classList.add('inActive')
+// 	buttonOne.classList.add('inActive')
+// 	buttonThree.classList.add('inActive')
+// 	buttonFour.classList.add('inActive')
+// }
 // aysync function handeling the like
 const likeHandler = async event => {
 	// stop the refresh
@@ -99,16 +101,4 @@ const likeHandler = async event => {
 // eventlistener
 form.forEach(button => button.addEventListener('click', likeHandler))
 
-// Spotify API function
-const frame = document.getElementById('embed-frame')
-const spotifyUrl = document.getElementById('spotifyUrl').value
 
-const changeSong = async url => {
-	fetch(`https://open.spotify.com/oembed?url=${url}`)
-		.then(response => response.json())
-		.then(data => {
-			frame.innerHTML = data.html
-		})
-}
-
-changeSong(spotifyUrl)
