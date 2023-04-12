@@ -1,22 +1,19 @@
 const mongoose = require('mongoose')
 
-const albumSchema = new mongoose.Schema({
+const gameSchema = new mongoose.Schema({
 	Title: String,
-	Artist: String,
 	Genre: String,
-	Year: String,
 	Image: {
 		data: String,
 		contentType: String,
 	},
 	Description: String,
-	Like: Boolean,
-	SpotifyLink: String,
+	Played: Boolean,
 })
 
 const userSchema = new mongoose.Schema({
 	Email: String,
-	Like: Array,
+	Played: Array,
 	Password: String,
 	Profilepic: {
 		data: String,
@@ -25,6 +22,6 @@ const userSchema = new mongoose.Schema({
 	Username: String,
 })
 
-const Albums = mongoose.model('Albums', albumSchema, 'Albums')
+const Games = mongoose.model('Games', gameSchema, 'Games')
 const Users = mongoose.model('Users', userSchema, 'Users')
-module.exports = { Users, Albums }
+module.exports = { Users, Games }

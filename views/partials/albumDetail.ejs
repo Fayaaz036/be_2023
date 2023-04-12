@@ -5,17 +5,10 @@
 	<% } %>
 	<div>
 		<h1><%= Title %></h1>
-		<p><%= Genre %> | <%= Year %></p>
+		<p><%= Genre %></p>
 	</div>
-
-	<p><%= Artist %></p>
-	<p><%= Description %></p>
-	
-	<div id="embed-frame"></div>
-	
-	<input type="hidden" id="spotifyUrl" value="<%= SpotifyLink %>">
+		<p><%= Description %></p>
 
 	<a href="<%- SRC %>"> <img src="../images/arrow.png" alt="" /></a>
 </div>
 
-<script src="/js/spotify.js"></script>
