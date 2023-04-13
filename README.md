@@ -15,7 +15,7 @@ Deze applicatie is een verdere iteratie op het Teamonderdeel. Tijdens deze itera
 ## :wrench: Installation 
 If you want to use the app locally, you can clone my repository with the following commands:
 
-`git clone https://github.com/Fayaaz036/bt_2023/tree/herkansingA1`
+`git clone https://github.com/Fayaaz036/bt_2023.git`
 
 Then install al the dependancies
 
@@ -35,7 +35,7 @@ After that you can run the project with the following command:
 * Progressive Enhancement: What It Is, And How To Use It? — Smashing Magazine. (2009, 22 april). Smashing Magazine. https://www.smashingmagazine.com/2009/04/progressive-enhancement-what-it-is-and-how-to-use-it/
 
 ## :bookmark: License 
-Copyright (c) 2023 Fayaaz Nabie, [MIT](https://github.com/samclarkb/BT-2023-Project-Tech/blob/main/LICENSE)
+Copyright (c) 2023 Fayaaz Nabie, [MIT](https://github.com/Fayaaz036/bt_2023/blob/developer/LICENSE.md)
 
 
 
