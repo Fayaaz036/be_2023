@@ -1,0 +1,33 @@
+<div>
+	<%- include('partials/header', {title: 'Add Album' , image: userinfo[0].Profilepic.data, username: userinfo[0].Username })
+		%>
+        <h3>Add game</h3>
+		<div class="addForm">
+			<form action="/add" method="POST" enctype="multipart/form-data" key="File">
+				<div class="formText">
+					<legend><h2>Game screenshot:</h2></legend>
+					<input id="File" type="File" name="File" required />
+					<label for="File"><img src="../images/plus.png" alt="" /></label>
+				</div>
+				<div class="formText">
+					<label for="Title"><h2>Title:</h2></label>
+					<input id="Title" type="text" name="Title" required />
+				</div>
+				<fieldset>
+					<Legend> <h2>Genre:</h2> </Legend>
+					<input type="radio" id="Shooter" name="Genre" value="Shooter" checked />
+					<label for="Shooter">Shooter</label>
+					<input type="radio" id="Racing" name="Genre" value="Racing" />
+					<label for="Racing">Racing</label>
+					<input type="radio" id="Roleplay" name="Genre" value="Roleplay" />
+					<label for="Roleplay">Roleplay</label>
+				</fieldset>
+				<div class="formText">
+					<label for="Description"><h2>Review:</h2></label>
+					<textarea id="Description" type="text" name="Description" required></textarea>
+				</div>
+				<input class="buttonAdd" type="submit" value="Add" />
+			</form>
+		</div>
+		<%- include('partials/navigation') %>
+</div>
