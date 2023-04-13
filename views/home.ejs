@@ -1,10 +1,12 @@
-<div>
-    <%- include('partials/header', {title: 'Add Album' , image: userinfo[0].Profilepic.data, username: userinfo[0].Username })
-    %>
-    <h3>Home</h3>
-    <h3>Latest News</h3>
-
-
-
-    <%- include('partials/navigation') %>
-</div>
+<body>
+<h1>Video Games News</h1>
+<ul>
+    <%= articles.forEach( article => { -%>
+        <li>
+            <h2><%= article.title -%></h2>
+            <p><%= article.description -%></p>
+            <a href="<%= article.link -%>">Read More</a>
+        </li>
+    <%= }); -%>
+</ul>
+</body>

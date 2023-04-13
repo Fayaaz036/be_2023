@@ -15,6 +15,7 @@ const { getVideoGamesNews } = require('./public/js/api');
 
 //Album en user model met hashpassword in db
 const { Games, Users } = require('./models/models')
+const {response} = require("express");
 const saltRounds = 10
 
 
@@ -142,7 +143,7 @@ app.get('/', (req, res) => {
 	.get('/home', async (req, res) => {
 		try {
 			const newsArticles = await getVideoGamesNews();
-			res.render('home', { title: newsArticles.title });
+			res.render('home', {  articles: response.data })
 		} catch (error) {
 			console.error(error);
 			res.status(500).send('Oops! Something went wrong.');
@@ -169,11 +170,15 @@ app.post('/home', async (req, res) => {
 		// when password is identical with the one in the database, create a session with user ID
 		if (cmp) {
 			req.session.user = { userID: checkUser[0]['_id'] }
-			// const newsArticles = await getVideoGamesNews();
 			const currentUser = await Users.find({ _id: req.session.user.userID })
-			res.render('home', { userinfo: currentUser })
+			res.render('home', { userinfo: currentUser,  articles: response.data });
 			///haal nieuws op via de api
 
+			axios.request(getVideoGamesNews).then(function (response) {
+				// console.log(response.data);
+			}).catch(function (error) {
+				console.error(error);
+			});
 
 		} else {
 			// show error message when password is wrong

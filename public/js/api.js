@@ -10,7 +10,7 @@ const getVideoGamesNews = {
 };
 
 axios.request(getVideoGamesNews).then(function (response) {
-    console.log(response.data);
+    // console.log(response.data);
 }).catch(function (error) {
     console.error(error);
 });
