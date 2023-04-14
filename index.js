@@ -137,18 +137,19 @@ app.get('/', (req, res) => {
 	.get('/registerSucces', async (req, res) => {
 		res.render('registerSucces')
 	})
-	.get('*', (req, res) => {
-		res.status(404).render('404')
-	})
 	.get('/home', async (req, res) => {
 		try {
 			const newsArticles = await getVideoGamesNews();
-			res.render('home', {  articles: response.data })
+			console.log(newsArticles);
+			res.render('home', {  articles: newsArticles })
 		} catch (error) {
 			console.error(error);
 			res.status(500).send('Oops! Something went wrong.');
 		}
-	});
+	})
+	.get('*', (req, res) => {
+		res.status(404).render('404')
+	})
 
 const errorlogin = req => {
 	return {

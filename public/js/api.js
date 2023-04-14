@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const getVideoGamesNews = {
+const options = {
     method: 'GET',
     url: 'https://videogames-news2.p.rapidapi.com/videogames_news/recent',
     headers: {
@@ -9,11 +9,16 @@ const getVideoGamesNews = {
     }
 };
 
-axios.request(getVideoGamesNews).then(function (response) {
-    // console.log(response.data);
-}).catch(function (error) {
-    console.error(error);
-});
+async function getVideoGamesNews() {
+    let data = await axios.request(options).then(function (response) {
+        return response.data
+    }).catch(function (error) {
+        console.error(error);
+    });
+
+    return data;
+}
+
 module.exports = {
     getVideoGamesNews,
 };
