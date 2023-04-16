@@ -2,9 +2,9 @@ const axios = require("axios");
 
 const options = {
     method: 'GET',
-    url: 'https://videogames-news2.p.rapidapi.com/videogames_news/recent',
+    url: 'https://videogames-news2.p.rapidapi.com/videogames_news/search_news',
     headers: {
-        'X-RapidAPI-Key': '92c911c05fmshf12c9b883dc8b01p195452jsna31390874f81',
+        'X-RapidAPI-Key': '4290b1fda9msh8241662d167c40ep1da90ajsn6e448db68dfe',
         'X-RapidAPI-Host': 'videogames-news2.p.rapidapi.com'
     }
 };

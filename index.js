@@ -126,7 +126,7 @@ app.get('/', (req, res) => {
 		const currentUser = await Users.find({ _id: req.session.user.userID })
 		const favoriteGameTitles = currentUser[0].Played.map(item => item.Title)
 		const fetchGames = await Games.find({}).sort({ _id: -1 })
-		res.render('all', { data: fetchGames, user: favoriteGameTitles, userinfo: currentUser })
+		res.render('all', { userinfo: currentUser, data: fetchGames, user: favoriteGameTitles  })
 	})
 	.get('/register', async (req, res) => {
 		res.render('register', {
@@ -139,9 +139,10 @@ app.get('/', (req, res) => {
 	})
 	.get('/home', async (req, res) => {
 		try {
+			const currentUser = await Users.find({ _id: req.session.user.userID })
 			const newsArticles = await getVideoGamesNews();
 			console.log(newsArticles);
-			res.render('home', {  articles: newsArticles })
+			res.render('home', {  articles: newsArticles, userinfo: currentUser })
 		} catch (error) {
 			console.error(error);
 			res.status(500).send('Oops! Something went wrong.');
@@ -172,6 +173,7 @@ app.post('/home', async (req, res) => {
 		if (cmp) {
 			req.session.user = { userID: checkUser[0]['_id'] }
 			const currentUser = await Users.find({ _id: req.session.user.userID })
+
 			res.render('home', { userinfo: currentUser,  articles: response.data });
 			///haal nieuws op via de api
 

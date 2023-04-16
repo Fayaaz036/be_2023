@@ -6,8 +6,9 @@
 			<form action="/add" method="POST" enctype="multipart/form-data" key="File">
 				<div class="formText">
 					<legend><h2>Game screenshot:</h2></legend>
-					<input id="File" type="File" name="File" required />
-					<label for="File"><img src="../images/plus.png" alt="" /></label>
+					<input id="File" type="File" name="File" required onchange="loadFile(event)"/>
+					<img id="output"/>
+					<label for="File"><img src="../images/plus.png" alt="" class="plus"/></label>
 				</div>
 				<div class="formText">
 					<label for="Title"><h2>Title:</h2></label>
@@ -31,3 +32,13 @@
 		</div>
 		<%- include('partials/navigation') %>
 </div>
+<script>
+	var loadFile = function(event) {
+		var reader = new FileReader();
+		reader.onload = function(){
+			var output = document.getElementById('output');
+			output.src = reader.result;
+		};
+		reader.readAsDataURL(event.target.files[0]);
+	};
+</script>

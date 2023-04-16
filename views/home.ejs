@@ -1,8 +1,21 @@
 <body>
 <h1>Video Games News</h1>
-<ul>
-    <% articles.forEach(function(article) { %>
-        <li> Name:<%= article.title %> Course:<%= article.date %></li>
-    <% }); %>
-</ul>
+<div>
+        <% articles.forEach(function(article) { %>
+
+        <a class="albumCard" id="albumcard" href="<%= article.link%>" target="_blank">
+                <div
+                        class="albumImage lazy-background fallback"
+                        style="background-image: url('<%= article.image %>')"
+                        >
+                </div>
+                <div>
+                        <p><%= article.title %></p>
+                        <p><%= article.date %></p>
+                </div>
+        </a>
+                <% }); %>
+
+</div>
 </body>
+<%- include('partials/navigation') %>

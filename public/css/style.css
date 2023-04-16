@@ -620,3 +620,11 @@ input[type='submit'], .unauthorized a {
 input[type='radio'] + label {
 	background-color: transparent;
 }
+.plus{
+	height:100px!important;
+	padding: 2em;!important;
+}
+
+#output {
+	height:200px;
+}
