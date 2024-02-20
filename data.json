@@ -1,0 +1,42 @@
+[
+  {
+    "Title": "Echoes of Eternity",
+    "Releasedate": "15 april 2023",
+    "Genre": "RPG",
+    "Description": "Echoes of Eternity dompelt spelers onder in een meeslepende wereld vol mysterie en avontuur. Met prachtige graphics en uitdagende gameplay biedt deze RPG een onvergetelijke ervaring. De diepgaande verhaallijn en boeiende personages zorgen ervoor dat je keer op keer terug wilt keren naar deze magische wereld.",
+    "Rating": 5,
+    "GameImage" : "#"
+  },
+  {
+    "Title": "Cybernetic Conquest",
+    "Releasedate": "8 november 2023",
+    "Genre": "Actie/Strategie",
+    "Description": "Cybernetic Conquest is een verbluffende mix van actie en strategie. De futuristische setting en indrukwekkende gevechten houden je op het puntje van je stoel. Met uitdagende missies en een diepgaand upgradesysteem biedt deze game eindeloze uren speelplezier voor liefhebbers van het genre.",
+    "Rating": 4,
+    "GameImage" : "#"
+  },
+  {
+    "Title": "Shadow's Embrace",
+    "Releasedate": "22 mei 2024",
+    "Genre": "Horror",
+    "Description": "Shadow's Embrace is een meesterwerk in het horror-genre. De duistere sfeer en enge momenten zorgen voor constante spanning. Met intelligente puzzels en een meeslepend verhaal is deze game een must-play voor alle liefhebbers van angstaanjagende avonturen.",
+    "Rating": 5,
+    "GameImage" : "#"
+  },
+  {
+    "Title": "Galactic Rivals",
+    "Releasedate": "3 februari 2024",
+    "Genre": "Ruimtegevecht",
+    "Description": "Galactic Rivals brengt epische ruimtegevechten naar een heel nieuw niveau. De adembenemende visuals en intense actie zorgen voor een onvergetelijke ervaring. Met verschillende schepen om uit te kiezen en aanpasbare loadouts biedt deze game eindeloze mogelijkheden voor strategie en speelstijl.",
+    "Rating": 4,
+    "GameImage" : "#"
+  },
+  {
+    "Title": "Realm of Legends",
+    "Releasedate": "17 september 2023",
+    "Genre": "RPG",
+    "Description": "Realm of Legends is een groots avontuur dat spelers meeneemt naar een fantasierijke wereld vol wonderen en gevaren. Met zijn levendige omgevingen en meeslepende verhaallijn is deze game een absolute traktatie voor RPG-liefhebbers. De diepe karakters en uitdagende gevechten zorgen ervoor dat je jezelf verliest in dit magische universum.",
+    "Rating": 5,
+    "GameImage" : "#"
+  }
+]
