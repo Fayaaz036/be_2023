@@ -10,13 +10,22 @@ const session = require('express-session')
 const compression = require('compression')
 const psnApi = require("psn-api")
 const request = require('request');
-const axios = require('axios');
-const { getVideoGamesNews } = require('./public/js/api');
+// const axios = require('axios');
+const  getVideoGamesNews  = 'https://raw.githubusercontent.com/Fayaaz036/bt_2023/developer/data.json';
 
 //Album en user model met hashpassword in db
 const { Games, Users } = require('./models/models')
 const {response} = require("express");
 const saltRounds = 10
+
+// fetch alle games in de JSON
+// async function haalGamesOp() {
+// 	const reactie = await fetch(getVideoGamesNews);
+// 	const data = await reactie.json();
+// 	console.log(data);
+// }haalGamesOp();
+
+
 
 
 // Defining express as app
@@ -138,11 +147,16 @@ app.get('/', (req, res) => {
 		res.render('registerSucces')
 	})
 	.get('/home', async (req, res) => {
+
 		try {
 			const currentUser = await Users.find({ _id: req.session.user.userID })
-			const newsArticles = await getVideoGamesNews();
-			console.log(newsArticles);
-			res.render('home', {  articles: newsArticles, userinfo: currentUser })
+
+			//update
+			const reactie = await fetch(getVideoGamesNews);
+			const data = await reactie.json();
+
+			res.render('home', {  articles: data.Title, userinfo: currentUser });
+			console.log(data.Title);
 		} catch (error) {
 			console.error(error);
 			res.status(500).send('Oops! Something went wrong.');
@@ -171,17 +185,20 @@ app.post('/home', async (req, res) => {
 		const cmp = await bcrypt.compare(req.body.password, dbpw)
 		// when password is identical with the one in the database, create a session with user ID
 		if (cmp) {
+			const reactie = await fetch(getVideoGamesNews);
+			const data = await reactie.json();
+
 			req.session.user = { userID: checkUser[0]['_id'] }
 			const currentUser = await Users.find({ _id: req.session.user.userID })
 
-			res.render('home', { userinfo: currentUser,  articles: response.data });
+			res.render('home', { userinfo: currentUser,  articles: data.Title });
 			///haal nieuws op via de api
 
-			axios.request(getVideoGamesNews).then(function (response) {
-				// console.log(response.data);
-			}).catch(function (error) {
-				console.error(error);
-			});
+			// axios.request(getVideoGamesNews).then(function (response) {
+				console.log(data.Title);
+			// }).catch(function (error) {
+			// 			// 	console.error(error);
+			// 			// });
 
 		} else {
 			// show error message when password is wrong
