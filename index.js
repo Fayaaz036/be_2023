@@ -8,22 +8,12 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const session = require('express-session')
 const compression = require('compression')
-const psnApi = require("psn-api")
-const request = require('request');
-// const axios = require('axios');
-const  getVideoGamesNews  = 'https://raw.githubusercontent.com/Fayaaz036/bt_2023/developer/data.json';
+const getVideoGamesNews  = 'https://raw.githubusercontent.com/Fayaaz036/bt_2023/developer/data.json';
 
 //Album en user model met hashpassword in db
 const { Games, Users } = require('./models/models')
 const {response} = require("express");
 const saltRounds = 10
-
-// fetch alle games in de JSON
-// async function haalGamesOp() {
-// 	const reactie = await fetch(getVideoGamesNews);
-// 	const data = await reactie.json();
-// 	console.log(data);
-// }haalGamesOp();
 
 
 
@@ -60,6 +50,7 @@ const port = process.env.PORT
 
 // Mongodb url
 const url = `mongodb+srv://${userName}:${passWord}@bloktech.6qhartg.mongodb.net/?retryWrites=true&w=majority`
+
 
 // Making connection with Mongodb
 mongoose.set('strictQuery', false)
@@ -111,7 +102,12 @@ app.get('/', (req, res) => {
 		passwordInput: '',
 	})
 
+
 })
+	.get('/:id', authorizeUser, async (req, res) => {
+		const fetchOneGame = await getVideoGamesNews.find({ _id: req.params.id })
+		res.render('detailPageAll', { data: fetchOneGame })
+	})
 	.get('/results', authorizeUser, async (req, res) => {
 		const currentUser = await Users.find({ _id: req.session.user.userID })
 		const favoriteGameTitles = currentUser[0].Played.map(item => item.Title)
@@ -149,16 +145,16 @@ app.get('/', (req, res) => {
 	.get('/home', async (req, res) => {
 
 		try {
-			const currentUser = await Users.find({ _id: req.session.user.userID })
+			// const currentUser = await Users.find({ _id: req.session.user.userID })
 
 			//update
 			const reactie = await fetch(getVideoGamesNews);
 			const data = await reactie.json();
 
-			res.render('home', {  articles: data.Title, userinfo: currentUser });
-			console.log(data.Title);
+			res.render('home', { articles: data });
+			// console.log("Get data gelukt");
 		} catch (error) {
-			console.error(error);
+			console.error("get data mislukt",error);
 			res.status(500).send('Oops! Something went wrong.');
 		}
 	})
@@ -185,28 +181,27 @@ app.post('/home', async (req, res) => {
 		const cmp = await bcrypt.compare(req.body.password, dbpw)
 		// when password is identical with the one in the database, create a session with user ID
 		if (cmp) {
-			const reactie = await fetch(getVideoGamesNews);
-			const data = await reactie.json();
+			try {
+				const reactie = await fetch(getVideoGamesNews);
+				const data = await reactie.json();
 
-			req.session.user = { userID: checkUser[0]['_id'] }
-			const currentUser = await Users.find({ _id: req.session.user.userID })
+				req.session.user = { userID: checkUser[0]['_id'] }
+				const currentUser = await Users.find({ _id: req.session.user.userID })
 
-			res.render('home', { userinfo: currentUser,  articles: data.Title });
-			///haal nieuws op via de api
-
-			// axios.request(getVideoGamesNews).then(function (response) {
-				console.log(data.Title);
-			// }).catch(function (error) {
-			// 			// 	console.error(error);
-			// 			// });
-
+				res.render('home', { articles: data });
+				// Haal nieuws op via de API
+				console.log(data);
+			} catch (error) {
+				console.error("Post data mislukt", error);
+				res.status(500).send('Oops! Something went wrong.');
+			}
 		} else {
 			// show error message when password is wrong
-			res.render('logIn', errorlogin(req))
+			res.render('logIn', errorlogin(req));
 		}
 	} else {
 		// show error message when email is wrong
-		res.render('logIn', errorlogin(req))
+		res.render('logIn', errorlogin(req));
 	}
 })
 	.post('/logout', (req, res) => {

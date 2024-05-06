@@ -1,5 +1,6 @@
 [
   {
+    "ID": 1,
     "Title": "Echoes of Eternity",
     "Releasedate": "15 april 2023",
     "Genre": "RPG",
@@ -8,6 +9,7 @@
     "GameImage" : "#"
   },
   {
+    "ID": 2,
     "Title": "Cybernetic Conquest",
     "Releasedate": "8 november 2023",
     "Genre": "Actie/Strategie",
@@ -16,6 +18,7 @@
     "GameImage" : "#"
   },
   {
+    "ID": 3,
     "Title": "Shadow's Embrace",
     "Releasedate": "22 mei 2024",
     "Genre": "Horror",
@@ -24,6 +27,7 @@
     "GameImage" : "#"
   },
   {
+    "ID": 4,
     "Title": "Galactic Rivals",
     "Releasedate": "3 februari 2024",
     "Genre": "Ruimtegevecht",
@@ -32,6 +36,7 @@
     "GameImage" : "#"
   },
   {
+    "ID": 5,
     "Title": "Realm of Legends",
     "Releasedate": "17 september 2023",
     "Genre": "RPG",
