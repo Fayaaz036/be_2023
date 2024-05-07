@@ -102,3 +102,38 @@ const likeHandler = async event => {
 form.forEach(button => button.addEventListener('click', likeHandler))
 
 
+// // Registratie van de service worker
+// navigator.serviceWorker.register('js/service-worker.js');
+
+// Registreer de service worker
+if ('serviceWorker' in navigator) {
+	window.addEventListener('load', () => {
+		navigator.serviceWorker.register('js//service-worker.js')
+			.then(registration => {
+				console.log('Service worker registered:', registration);
+			})
+			.catch(error => {
+				console.error('Service worker registration failed:', error);
+			});
+	});
+}
+
+// Vraag toestemming voor meldingen
+Notification.requestPermission().then(permission => {
+	if (permission === 'granted') {
+		console.log('Toestemming voor meldingen ontvangen');
+	}
+});
+
+// Stuur een pushmelding
+function sendNotification() {
+	if (Notification.permission === 'granted') {
+		navigator.serviceWorker.ready.then(registration => {
+			registration.showNotification('Hallo van Notifications API!');
+
+		});
+	}
+}
+
+// Luister naar een gebeurtenis en stuur een melding
+document.getElementById('send-notification-btn').addEventListener('click', sendNotification);
