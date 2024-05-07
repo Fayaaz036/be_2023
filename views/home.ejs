@@ -2,7 +2,7 @@
 <h1>Video Games News</h1>
 <div>
         <% articles.forEach(function(article) { %>
-                <a class="albumCard" id="albumcard" href="<%= article.ID %>" target="_blank">
+                <a class="albumCard" id="albumcard" href="/<%= article.ID %>" target="_blank">
                         <div class="albumImage lazy-background fallback" style="background-image: url('<%= article.image %>')"></div>
                         <div>
                                 <p><%= article.Title %></p>

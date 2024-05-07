@@ -8,7 +8,7 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const session = require('express-session')
 const compression = require('compression')
-const getVideoGamesNews  = 'https://raw.githubusercontent.com/Fayaaz036/bt_2023/developer/data.json';
+const getVideoGamesNews  = 'https://raw.githubusercontent.com/Fayaaz036/bt_2023/herkansings2.0/data.json';
 
 //Album en user model met hashpassword in db
 const { Games, Users } = require('./models/models')
@@ -104,10 +104,7 @@ app.get('/', (req, res) => {
 
 
 })
-	.get('/:id', authorizeUser, async (req, res) => {
-		const fetchOneGame = await getVideoGamesNews.find({ _id: req.params.id })
-		res.render('detailPageAll', { data: fetchOneGame })
-	})
+
 	.get('/results', authorizeUser, async (req, res) => {
 		const currentUser = await Users.find({ _id: req.session.user.userID })
 		const favoriteGameTitles = currentUser[0].Played.map(item => item.Title)
@@ -118,10 +115,13 @@ app.get('/', (req, res) => {
 			userinfo: currentUser,
 		})
 	})
+
 	.get('/all:id', authorizeUser, async (req, res) => {
 		const fetchOneGame = await Games.find({ _id: req.params.id })
 		res.render('detailPageAll', { data: fetchOneGame })
 	})
+
+
 
 	.get('/add', authorizeUser, async (req, res) => {
 		const currentUser = await Users.find({ _id: req.session.user.userID })
@@ -158,6 +158,24 @@ app.get('/', (req, res) => {
 			res.status(500).send('Oops! Something went wrong.');
 		}
 	})
+	.get('/:id', authorizeUser, async (req, res) => {
+		const reactie = await fetch(getVideoGamesNews);
+		const data = await reactie.json();
+
+		console.log('Requested ID:', req.params.id);
+
+		const fetchOneGame = data.filter(game => {
+			console.log('Game ID:', game.ID);
+			return game.ID.toString() === req.params.id.toString();
+		});
+
+		console.log('Filtered Game:', fetchOneGame);
+
+		res.render('apiGameSingle', { articles: fetchOneGame });
+	})
+
+
+
 	.get('*', (req, res) => {
 		res.status(404).render('404')
 	})
