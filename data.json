@@ -43,50 +43,7 @@
     "Description": "Realm of Legends is een groots avontuur dat spelers meeneemt naar een fantasierijke wereld vol wonderen en gevaren. Met zijn levendige omgevingen en meeslepende verhaallijn is deze game een absolute traktatie voor RPG-liefhebbers. De diepe karakters en uitdagende gevechten zorgen ervoor dat je jezelf verliest in dit magische universum.",
     "Rating": 5,
     "GameImage" : "https://cf.geekdo-images.com/6iViZt6Cjbp9AiMcTj2gfg__opengraph/img/urokR2rUFt_f3jl1lpukSWHYoT4=/0x0:949x498/fit-in/1200x630/filters:strip_icc()/pic8078468.png"
-  },
-  {
-    "ID": 6,
-    "Title": "Eternal Odyssey",
-    "Releasedate": "10 oktober 2024",
-    "Genre": "Avontuur",
-    "Description": "Eternal Odyssey neemt spelers mee op een epische reis door adembenemende landschappen en mysterieuze ruïnes. Met zijn boeiende verhaal en uitdagende puzzels biedt deze game een onvergetelijke avontuurlijke ervaring.",
-    "Rating": 4,
-    "GameImage" : "https://cdn.pixabay.com/photo/2020/07/14/10/52/forest-5408844_960_720.jpg"
-  },
-  {
-    "ID": 7,
-    "Title": "Apex Legends",
-    "Releasedate": "4 maart 2019",
-    "Genre": "Battle Royale",
-    "Description": "Apex Legends is een razendsnelle battle royale-game waarin spelers strijden om de laatst overgebleven squad te zijn. Met unieke personages en vloeiende gameplay biedt deze game een spannende en competitieve ervaring.",
-    "Rating": 5,
-    "GameImage" : "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fapex-legends%2Fhome%2FAL_LogoOnBlack-Black-1920x1080-c74fd216d2fc0ea3b29d34e72f8a8b651af4c40e.png"
-  },
-  {
-    "ID": 8,
-    "Title": "Mystic Isles",
-    "Releasedate": "18 juni 2024",
-    "Genre": "Fantasy",
-    "Description": "Mystic Isles betovert spelers met zijn betoverende setting en intrigerende verhaal. Verken magische eilanden, ontmoet fascinerende wezens en onthul eeuwenoude geheimen terwijl je op avontuur gaat in dit fantastische RPG-avontuur.",
-    "Rating": 4,
-    "GameImage" : "https://cdn.pixabay.com/photo/2021/06/03/16/25/mountains-6300938_960_720.jpg"
-  },
-  {
-    "ID": 9,
-    "Title": "Legends of Valor",
-    "Releasedate": "7 december 2023",
-    "Genre": "Actie/Avontuur",
-    "Description": "Legends of Valor is een meeslepende actie-avonturengame boordevol opwinding en gevaar. Ga op een heldhaftige reis door gevaarlijke landen, versla angstaanjagende monsters en word een legende in deze epische saga.",
-    "Rating": 4,
-    "GameImage" : "https://cdn.pixabay.com/photo/2017/01/28/02/24/japan-2014613_960_720.jpg"
-  },
-  {
-    "ID": 10,
-    "Title": "Galactic Explorers",
-    "Releasedate": "15 augustus 2024",
-    "Genre": "Verkenning/Ruimtevaart",
-    "Description": "Galactic Explorers nodigt spelers uit om het universum te verkennen als dappere ruimtepioniers. Ontdek vreemde werelden, ontmoet buitenaardse wezens en bouw je eigen ruimtestation terwijl je op avontuur gaat in deze uitgestrekte kosmos.",
-    "Rating": 3,
-    "GameImage" : "https://cdn.pixabay.com/photo/2016/09/01/19/53/space-1636457_960_720.jpg"
   }
 ]
+
+
