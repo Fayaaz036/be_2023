@@ -1,0 +1,15 @@
+<body>
+<h1>Video Games News</h1>
+
+<div>
+        <% articles.forEach(function(article) { %>
+                <a class="albumCard" id="albumcard" href="/<%= article.ID %>" target="_blank">
+                        <div class="albumImage lazy-background fallback" style="background-image: url('<%= article.GameImage %>')"></div>
+                        <div>
+                                <p><%= article.Title %></p>
+                        </div>
+                </a>
+        <% }); %>
+</div>
+</body>
+<%- include('partials/navigation') %>
